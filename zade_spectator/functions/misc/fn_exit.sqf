@@ -33,6 +33,10 @@ switch (zade_spectator_camMode) do {
           zade_spectator_camera cameraEffect ["Terminate", "back"];
           detach player;
      };
+     case ("CINEMA"): {
+          zade_spectator_camera cameraEffect ["Terminate", "back"];
+          detach player;
+     };
 };
 
 //switch to new unit

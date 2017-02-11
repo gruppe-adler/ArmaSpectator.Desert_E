@@ -4,7 +4,7 @@
  *
  * Arguments:
  * 0: Target <OBJECT> or <POSITION> (Optional)
- * 1: Camera mode <STRING> either "FREECAM", "INTERNAL" or "EXTERNAL" (OPTIONAL)
+ * 1: Camera mode <STRING> either "CINEMA", FREECAM", "INTERNAL" or "EXTERNAL" (OPTIONAL)
  *
  * Return Value:
  * NONE
@@ -15,7 +15,7 @@
  * Public: No
  */
 
-params [["_target",([] call zade_spectator_fnc_allUnits) select 0],["_camMode","FREECAM"]];
+params [["_target",([] call zade_spectator_fnc_allUnits) select 0],["_camMode","CINEMA"]];
 
 //Initialize variables
 zade_spectator_camera = objNull;

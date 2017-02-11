@@ -96,6 +96,27 @@ switch (_camMode) do {
           private _offset = (getPos player) vectorAdd ((player selectionPosition "head") vectorMultiply -1);
           player attachTo [zade_spectator_camera,[0,0,0]];
      };
+
+     case ("CINEMA"): {
+          private _camera = "camera" camCreate eyePos zade_spectator_target;
+          _camera cameraEffect ["internal", "back"];
+          private _pos = [zade_spectator_target, 7,(direction zade_spectator_target -180)] call BIS_fnc_relPos;
+          _pos set [2,3];
+          _camera setPos _pos;
+          _camera setDir (direction zade_spectator_target);
+          _camera camCommand "MANUAL ON";
+          _camera camCommand "INERTIA ON";
+          _camera cameraEffect ["INTERNAL", "BACK"];
+          showCinemaBorder false;
+
+          cameraEffectEnableHUD true;
+          showHUD [true, true, true, true, true, true, true, true];
+          zade_spectator_camera = _camera;
+
+          //attach spectator unit to camera
+          private _offset = (getPos player) vectorAdd ((player selectionPosition "head") vectorMultiply -1);
+          player attachTo [zade_spectator_camera,[0,0,0]];
+     };
 };
 
 zade_spectator_camMode = _camMode;

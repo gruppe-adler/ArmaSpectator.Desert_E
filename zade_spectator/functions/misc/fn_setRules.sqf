@@ -22,7 +22,7 @@ switch (toLower _value) do {
      case ("cameramode"): {
          _params params ["_allow","_modes"];
          if (typeName _modes == "STRING") then {_modes = [_modes];};
-         params _allowedModes = +(missionNamespace getVariable ["zade_spectator_allowedCamMode",["FREECAM","INTERNAL","EXTERNAL"]]);
+         params _allowedModes = +(missionNamespace getVariable ["zade_spectator_allowedCamMode",["CINEMA","FREECAM","INTERNAL","EXTERNAL"]]);
 
          if (_allow) then {
               {

@@ -22,7 +22,7 @@ private _mousePos = _ctrl ctrlMapScreenToWorld getMousePosition;
 
 switch (_btn) do {
      case (0): { //set freecam
-          if (zade_spectator_camMode isEqualTo "FREECAM") then {
+          if (zade_spectator_camMode isEqualTo "FREECAM" || zade_spectator_camMode isEqualTo "CINEMA" ) then {
                _mousePos set [2,(getPos zade_spectator_camera) select 2];
                zade_spectator_camera setPos _mousePos;
           };

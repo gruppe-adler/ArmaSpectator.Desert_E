@@ -19,7 +19,7 @@ params ["_dialog"];
 uiNamespace setVariable ['zade_spectator_main',_dialog];
 
 //update both toolboxes
-(_dialog displayCtrl 17) lbSetCurSel (["FREECAM","INTERNAL","EXTERNAL"] find zade_spectator_camMode);
+(_dialog displayCtrl 17) lbSetCurSel (["CINEMA", "FREECAM","INTERNAL","EXTERNAL"] find zade_spectator_camMode);
 (_dialog displayCtrl 11) lbSetCurSel ([west,east,resistance,civilian] find (side zade_spectator_target));
 
 //update units tree

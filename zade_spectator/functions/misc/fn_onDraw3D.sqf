@@ -25,19 +25,26 @@
           if (leader (group _x) isEqualTo _x) then {_icon = "iconManLeader";};
           if ([_x] call zade_spectator_fnc_isUnconscious) then {_icon = "\a3\ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa";};
 
+          private _position = _x modelToWorldVisual (_x selectionPosition "Head"); 
+          _position set [2, (_position select 2) + 1];
+
           //color
           private _color = [(side _x)] call BIS_fnc_sideColor;;
           private _alpha = if (_distance > 1500) then {(2000 - _distance) / 500} else {1};
           _color set [3,_alpha];
 
-          drawIcon3D [_icon, _color, getPos _x, 0.65, 0.65, 0, "", 0];
+          drawIcon3D [_icon, _color, _position, 0.65, 0.65, 0, "", 0];
+
+           { player reveal _x;
+          } forEach allUnits;
 
           //name
-          if (_distance < 300) then {
+          if (_distance < 300 && cursorObject == _x) then {
+              
                private _textalpha = if (_distance > 270) then {(300 - _distance) / 30} else {1};
                _color set [3,_textalpha];
 
-               drawIcon3D ["", _color, getPos _x, 0.65, 0.65, 0, name _x, 0, pixelH * pixelGrid * 2.5,"RobotoCondensed"];
+               drawIcon3D ["", _color, _position, 0.65, 0.65, 0, name _x, 0, pixelH * pixelGrid * 2.5,"RobotoCondensed"];
           };
      };
 } forEach ([] call zade_spectator_fnc_allUnits);

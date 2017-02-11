@@ -136,12 +136,12 @@ switch (_key) do {
           true;
      };
      case (46): { //C - Cycle cammode
-          private _camMode = (["EXTERNAL","FREECAM","INTERNAL"] find zade_spectator_camMode);
+          private _camMode = (["CINEMA","EXTERNAL","FREECAM","INTERNAL"] find zade_spectator_camMode);
           if (_ctrl) then {
-               _camMode = (["INTERNAL","EXTERNAL","FREECAM"] find zade_spectator_camMode);
+               _camMode = (["INTERNAL","EXTERNAL","FREECAM", "CINEMA"] find zade_spectator_camMode);
           };
           (_dialog displayCtrl 17) lbSetCurSel _camMode;
-          [(["FREECAM","INTERNAL","EXTERNAL"] select _camMode)] call zade_spectator_fnc_switchCamMode;
+          [(["CINEMA", "FREECAM","INTERNAL","EXTERNAL"] select _camMode)] call zade_spectator_fnc_switchCamMode;
           true;
      };
      case (56): { //LALT - Speed
